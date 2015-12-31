@@ -1,7 +1,0 @@
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.BusinessEntities\bin\Debug\MvcWebApiAUSA.BusinessEntities.dll
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.BusinessEntities\bin\Debug\MvcWebApiAUSA.BusinessEntities.pdb
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.BusinessEntities\bin\Debug\MvcWebApiAUSA.Common.dll
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.BusinessEntities\bin\Debug\MvcWebApiAUSA.Common.pdb
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.BusinessEntities\obj\Debug\MvcWebApiAUSA.BusinessEntities.csprojResolveAssemblyReference.cache
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.BusinessEntities\obj\Debug\MvcWebApiAUSA.BusinessEntities.dll
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.BusinessEntities\obj\Debug\MvcWebApiAUSA.BusinessEntities.pdb

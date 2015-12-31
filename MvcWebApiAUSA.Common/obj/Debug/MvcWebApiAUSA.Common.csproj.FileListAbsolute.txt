@@ -1,4 +1,0 @@
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.Common\bin\Debug\MvcWebApiAUSA.Common.dll
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.Common\bin\Debug\MvcWebApiAUSA.Common.pdb
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.Common\obj\Debug\MvcWebApiAUSA.Common.dll
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.Common\obj\Debug\MvcWebApiAUSA.Common.pdb

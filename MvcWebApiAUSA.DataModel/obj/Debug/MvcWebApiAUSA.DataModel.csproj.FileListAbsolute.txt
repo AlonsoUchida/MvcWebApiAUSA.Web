@@ -1,4 +1,0 @@
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.DataModel\bin\Debug\MvcWebApiAUSA.DataModel.dll
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.DataModel\bin\Debug\MvcWebApiAUSA.DataModel.pdb
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.DataModel\obj\Debug\MvcWebApiAUSA.DataModel.dll
-c:\users\arkmetal\documents\visual studio 2015\Projects\MvcWebApiAUSA.Web\MvcWebApiAUSA.DataModel\obj\Debug\MvcWebApiAUSA.DataModel.pdb
