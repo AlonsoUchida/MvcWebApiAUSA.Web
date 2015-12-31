@@ -11,9 +11,9 @@ namespace MvcWebApiAUSA.Web
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
-        {
-            Unity.Bootstrapper.Initialise();
+        {         
             ConfigureAuth(app);
+            Unity.Bootstrapper.Initialise();
         }
     }
 }

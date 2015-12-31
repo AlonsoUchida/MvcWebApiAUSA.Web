@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<script>
+    function login(){
+        var loginData = {
+            grant_type: 'password',
+            username: self.loginEmail(),
+            password: self.loginPassword()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/Token',
+            data: loginData
+        }).done(function (data) {
+            self.user(data.userName);
+            // Cache the access token in session storage.
+            sessionStorage.setItem(tokenKey, data.access_token);
+        }).fail(showError);
+    }
+
+    function getValues() {
+        // If we already have a bearer token, set the Authorization header.
+        var token = sessionStorage.getItem(tokenKey);
+        var headers = {};
+        if (token) {
+            headers.Authorization = 'Bearer ' + token;
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: 'api/values/1',
+            headers: headers
+        }).done(function (data) {
+            self.result(data);
+        }).fail(showError);
+    }
+
+    function logout() {
+        self.logout = function () {
+            sessionStorage.removeItem(tokenKey)
+        }
+    }
+</script>
+<div class="col-xs-6">
+    <button id="btnValues" type="button" class="btn btn-default btn-block font-boton b_color_2 tex_boton_2"  onclick="getValues()"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Obtener Valores </button>
+</div>
+<div class="col-xs-6">
+    <button id="btnLogin" type="button" class="btn btn-default btn-block font-boton b_color_2 tex_boton_2" onclick="login()"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> LOGIN </button>
+</div>
+<div class="col-xs-6">
+    <button id="btnLogout" type="button" class="btn btn-default btn-block font-boton b_color_2 tex_boton_2" onclick="logout()"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> LOGOUT </button>
+</div>
