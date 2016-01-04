@@ -7,21 +7,33 @@
 <h2>Index</h2>
 
 <script>
+
+    function showError(jqXHR) {
+        alert(jqXHR.status + ': ' + jqXHR.statusText);
+    }
+
     function login(){
         var loginData = {
-            grant_type: 'password',
-            username: self.loginEmail(),
-            password: self.loginPassword()
+            /*grant_type: 'password',*/
+            username: 'username',
+            password: 'password'
+        };
+
+        var headers = {
+            username: 'user',
+            password: 'password'
         };
 
         $.ajax({
             type: 'POST',
-            url: '/Token',
-            data: loginData
+            url: 'api/LoginApi',
+            data: loginData,
+            headers: headers
         }).done(function (data) {
             self.user(data.userName);
             // Cache the access token in session storage.
-            sessionStorage.setItem(tokenKey, data.access_token);
+            sessionStorage.setItem("tokenKey", data.access_token);
+            console.log(data.access_token);
         }).fail(showError);
     }
 

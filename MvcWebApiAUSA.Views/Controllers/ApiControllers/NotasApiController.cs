@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace MvcWebApiAUSA.Web.Controllers
+namespace MvcWebApiAUSA.Views.Controllers
 {
     public class NotasApiController : ApiController
     {

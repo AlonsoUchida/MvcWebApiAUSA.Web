@@ -6,7 +6,6 @@ using Owin;
 using MvcWebApiAUSA.Views.Controllers;
 using Microsoft.Practices.Unity;
 using MvcWebApiAUSA.Views.Areas.HelpPage.Controllers;
-using MvcWebApiAUSA.Web.Controllers;
 
 [assembly: OwinStartup(typeof(MvcWebApiAUSA.Views.Startup))]
 
@@ -17,6 +16,7 @@ namespace MvcWebApiAUSA.Views
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            Unity.Bootstrapper.Initialise();
         }
     }
 }
