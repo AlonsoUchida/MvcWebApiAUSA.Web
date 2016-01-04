@@ -12,6 +12,7 @@ namespace MvcWebApiAUSA.Views.Models
     public class BasicAuthHttpModule : IHttpModule
     {
         private const string Realm = "My Realm";
+        private static Dictionary<string, string> userTokens = new Dictionary<string, string>();
 
         public void Init(HttpApplication context)
         {
@@ -20,19 +21,31 @@ namespace MvcWebApiAUSA.Views.Models
             context.EndRequest += OnApplicationEndRequest;
         }
 
-        private static void SetPrincipal(IPrincipal principal)
+        internal static void SetPrincipal(IPrincipal principal)
         {
             Thread.CurrentPrincipal = principal;
             if (HttpContext.Current != null)
             {
                 HttpContext.Current.User = principal;
-            }
+            }            
+        }
+
+        internal static void SaveToken(ISecurityIdentity identity) {
+            if(userTokens[identity.UserName] == null)
+                userTokens.Add(identity.UserName, identity.Token);
         }
 
         // TODO: Here is where you would validate the username and password.
         private static bool CheckPassword(string username, string password)
         {
-            return username == "user" && password == "password";
+            bool succeded = false;
+            if (HttpContext.Current.User != null)
+            {
+                ISecurityIdentity identity = (ISecurityIdentity)HttpContext.Current.User;
+                //succeded = (username == identity.UserName && password == identity.Token);
+                succeded = userTokens[username] == password;
+            }
+            return succeded;
         }
 
         private static void AuthenticateUser(string credentials)
@@ -67,17 +80,20 @@ namespace MvcWebApiAUSA.Views.Models
         private static void OnApplicationAuthenticateRequest(object sender, EventArgs e)
         {
             var request = HttpContext.Current.Request;
-            var authHeader = request.Headers["Authorization"];
-            if (authHeader != null)
+            if (!request.CurrentExecutionFilePath.Equals("/api/LoginApi"))
             {
-                var authHeaderVal = AuthenticationHeaderValue.Parse(authHeader);
-
-                // RFC 2617 sec 1.2, "scheme" name is case-insensitive
-                if (authHeaderVal.Scheme.Equals("basic",
-                        StringComparison.OrdinalIgnoreCase) &&
-                    authHeaderVal.Parameter != null)
+                var authHeader = request.Headers["Authorization"];
+                if (authHeader != null)
                 {
-                    AuthenticateUser(authHeaderVal.Parameter);
+                    var authHeaderVal = AuthenticationHeaderValue.Parse(authHeader);
+
+                    // RFC 2617 sec 1.2, "scheme" name is case-insensitive
+                    if (authHeaderVal.Scheme.Equals("basic",
+                            StringComparison.OrdinalIgnoreCase) &&
+                        authHeaderVal.Parameter != null)
+                    {
+                        AuthenticateUser(authHeaderVal.Parameter);
+                    }
                 }
             }
         }
